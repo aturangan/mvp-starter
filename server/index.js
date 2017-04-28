@@ -1,26 +1,47 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-// UNCOMMENT THE DATABASE YOU'D LIKE TO USE
-// var items = require('../database-mysql');
-// var items = require('../database-mongo');
+var request = require('request'); 
+
+var items = require('../database-mongo');
 
 var app = express();
+app.use(bodyParser.json()); 
 
-// UNCOMMENT FOR REACT
 app.use(express.static(__dirname + '/../react-client/dist'));
 
-// UNCOMMENT FOR ANGULAR
-// app.use(express.static(__dirname + '/../angular-client'));
-// app.use(express.static(__dirname + '/../node_modules'));
+console.log('SERVERR')
 
-app.get('/items', function (req, res) {
-  items.selectAll(function(err, data) {
-    if(err) {
-      res.sendStatus(500);
+//need to define url with star wars api + req.body.term
+
+app.post('/SW', function(req, res) {
+  res.send('THIS IS IN THE POST IN SERVER'); 
+
+  var user = req.body.word;
+  var urlStem = 'http://swapi.co/api/';
+
+  request(urlStem + user, function(error, response, data) {
+    var post = JSON.parse(data); 
+
+    if (error) {
+      throw error; 
     } else {
-      res.json(data);
+      console.log('data', data);
     }
-  });
+  })
+
+});
+
+
+app.get('/info', function (req, res) {
+  res.send('this is in the get in server');
+
+  // items.selectAll(function(err, data) {
+  //   if(err) {
+  //     res.sendStatus(500);
+  //   } else {
+  //     res.json(data);
+  //   }
+  // });
 });
 
 app.listen(3000, function() {

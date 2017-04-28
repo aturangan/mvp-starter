@@ -1,34 +1,69 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from './components/List.jsx';
+import ListInfo from './components/ListInfo.jsx';
+// import List from './components/List.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
+      info: []
     }
   }
 
-  componentDidMount() {
+  search(word) {
+    console.log(`${word} was searched`);
+
     $.ajax({
-      url: '/items', 
+
+      url: 'http://localhost:3000/SW',
+      type: 'POST', 
+      data: JSON.stringify({'word': `${word}`}),
+      contentType: 'application/json',
+
       success: (data) => {
+
+        //check state
         this.setState({
-          items: data
-        })
+          SW: data
+        });
+
+        console.log('successful ajax request');
       },
+
       error: (err) => {
         console.log('err', err);
       }
     });
   }
 
+  componentDidMount() {
+
+    $.ajax({
+      url: 'http://localhost:3000/info', 
+      type: 'GET', 
+
+      success: (data) => {
+        console.log('ajax success in component');
+
+        //check state
+        this.setState({
+          SW: data
+        })
+      },
+
+      error: (err) => {
+        console.log('err', err); 
+      }
+    })
+  }
+
   render () {
     return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
+      <h1>List Stats</h1>
+      <ListInfo info={this.state.SW}/>
     </div>)
   }
 }
