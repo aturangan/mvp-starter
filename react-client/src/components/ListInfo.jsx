@@ -7,10 +7,4 @@ const ListInfo = (props) => (
 	</div>
 )
 
-// const ListItem = (props) => (
-//   <div>
-//     { props.item.description }
-//   </div>
-// )
-
 export default ListInfo;

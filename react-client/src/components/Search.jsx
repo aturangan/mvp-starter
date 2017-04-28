@@ -27,25 +27,18 @@ class Search extends React.Component {
 		return (
 			<div>
 				<h1>Star Wars Information</h1> 
-				Enter a Star Wars Character: <input value={this.state.word} onChange={this.onChange}/>
-				<button onClick={this.search}> Stats </button>
+
+				<div class='form-group'>
+					<label for='text'>Enter a Star Wars Character:</label>
+					<input value={this.state.word} onChange={this.onChange}/>
+				</div>
+
+
+				// Enter a Star Wars Character: <input value={this.state.word} onChange={this.onChange}/>
+				// <button onClick={this.search}> Stats </button>
+			
+
 			</div>
 		)
 	}
 }
-
-export default Search;
-
-
-
-
-// const List = (props) => (
-//   <div>
-//     <h4> List Component </h4>
-
-//     //There are { props.SW.length } items.
-//     //{ props.items.map(item => <ListItem item={item}/>)}
-//   </div>
-// )
-
-// export default List;
