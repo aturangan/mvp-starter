@@ -24,7 +24,7 @@ class Search extends React.Component {
 
   render() {
     return (<div>
-      <h1>Star Wars Information</h1> 
+      <h3>Search</h3> 
         Enter a Star Wars Category: <input value={this.state.word} onChange={this.onChange}/>
       <button onClick={this.search}> Enter </button>
       </div>)  

@@ -14,17 +14,11 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 
 app.post('/SW', function(req, res) {
 
-  res.send('THIS IS IN THE POST IN SERVER'); 
-
-  //incorrect url
-
   var user = req.body.word.toLowerCase();
   var urlStem = 'http://swapi.co/api/';
 
   request(urlStem + user + '/', function(error, response, data) {
     var post = JSON.parse(data); 
-
-    //need post.results for array
 
     console.log('POST AT INDEX', post);
 
@@ -53,13 +47,13 @@ app.post('/SW', function(req, res) {
       })
     })
   })
+
   res.end();
 })
 
 
-
 app.get('/info', function (req, res) {
-  // newStat.find(function(err, item) {
+  // db.find(function(err, item) {
   //   if (err) {
   //     console.error(err); 
   //   } else {

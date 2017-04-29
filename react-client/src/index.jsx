@@ -31,11 +31,11 @@ class App extends React.Component {
           SW: data
         });
 
-        console.log('successful ajax request');
+        console.log('Successful AJAX Request');
       },
 
       error: (err) => {
-        console.log('err', err);
+        console.log('Error');
       }
 
     });
