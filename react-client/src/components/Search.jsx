@@ -1,5 +1,5 @@
 import React from 'react';
-import ListInfo from './ListInfo.jsx';
+//import ListInfo from './ListInfo.jsx';
 
 class Search extends React.Component {
 	constructor(props) {
@@ -7,9 +7,8 @@ class Search extends React.Component {
 
 		this.onChange = this.onChange.bind(this); 	
 		this.search = this.search.bind(this); 	
-
 		this.state = {
-			word: ''; 
+			word: '',
 		}
 	}
 
@@ -24,21 +23,13 @@ class Search extends React.Component {
 	}
 
 	render() {
-		return (
-			<div>
+		return (<div>
 				<h1>Star Wars Information</h1> 
-
-				<div class='form-group'>
-					<label for='text'>Enter a Star Wars Character:</label>
-					<input value={this.state.word} onChange={this.onChange}/>
-				</div>
-
-
-				// Enter a Star Wars Character: <input value={this.state.word} onChange={this.onChange}/>
-				// <button onClick={this.search}> Stats </button>
-			
-
-			</div>
-		)
+				Enter a Star Wars Category: <input value={this.state.word} onChange={this.onChange}/>
+				<button onClick={this.search}> Enter </button>
+			</div>)
+		
 	}
 }
+
+export default Search;

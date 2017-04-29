@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import Search from './components/Search.jsx';
 import ListInfo from './components/ListInfo.jsx';
+
 // import List from './components/List.jsx';
 
 
@@ -36,6 +38,7 @@ class App extends React.Component {
       error: (err) => {
         console.log('err', err);
       }
+
     });
   }
 
@@ -63,7 +66,8 @@ class App extends React.Component {
   render () {
     return (<div>
       <h1>List Stats</h1>
-      <ListInfo info={this.state.SW}/>
+      <ListInfo info={this.state.info}/>
+      <Search onSearch={this.search.bind(this)}/>
     </div>)
   }
 }
