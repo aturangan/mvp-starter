@@ -2,8 +2,8 @@ import React from 'react';
 
 const ListInfo = (props) => (
   <div>
-    <h3> Star Wars Stats Component </h3>
-      hellooooo in ListInfo, ListInfo.jsx
+    <h3> Choose to search for one of the following </h3>
+      Planets, Spaceships, Vehicles, People, Films and Species
   </div>
 )
 

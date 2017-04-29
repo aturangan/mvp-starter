@@ -11,21 +11,26 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+var infoSchema = mongoose.Schema({
+  //info that you want to display for star wars word 
+
+  title: String, 
+  episode_id: Number
+  
 });
 
-var Item = mongoose.model('Item', itemSchema);
+var Info = mongoose.model('Info', infoSchema);
 
-var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, items);
-    }
-  });
-};
+// var selectAll = function(callback) {
+//   Item.find({}, function(err, items) {
+//     if(err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, items);
+//     }
+//   });
+// };
 
-module.exports.selectAll = selectAll;
+// module.exports.selectAll = selectAll;
+
+module.exports = Info; 

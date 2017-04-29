@@ -64,7 +64,7 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <h1>List Stats</h1>
+      <h1>Star Wars Information</h1>
       <ListInfo info={this.state.info}/>
       <Search onSearch={this.search.bind(this)}/>
     </div>)
