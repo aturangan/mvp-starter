@@ -20,6 +20,9 @@ class Search extends React.Component {
 
   search() {
     this.props.onSearch(this.state.word); 
+
+
+    //how to render html to the screen.....
   }
 
   render() {

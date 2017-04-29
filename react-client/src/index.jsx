@@ -27,9 +27,9 @@ class App extends React.Component {
       success: (data) => {
 
         //check state
-        this.setState({
-          SW: data
-        });
+        // this.setState({
+        //   SW: data
+        // });
 
         console.log('Successful AJAX Request');
       },
@@ -48,12 +48,12 @@ class App extends React.Component {
       type: 'GET', 
 
       success: (data) => {
-        console.log('ajax success in component');
+        console.log('Successful GET Request');
 
         //check state
-        this.setState({
-          SW: data
-        })
+        // this.setState({
+        //   SW: data
+        // })
       },
 
       error: (err) => {
