@@ -4,7 +4,6 @@ import $ from 'jquery';
 import Search from './components/Search.jsx';
 import ListInfo from './components/ListInfo.jsx';
 
-// import List from './components/List.jsx';
 
 
 class App extends React.Component {

@@ -16,23 +16,18 @@ app.post('/SW', function(req, res) {
 
   res.send('THIS IS IN THE POST IN SERVER'); 
 
-  //won't work because user types in (ex. Luke, 
-  // but the api is looking for /person/1 or something)
-  //is it possible to get all the data from the api?
-  //or do you have to specifically put /planet/1
-
-  //need to get the result from category and number
+  //incorrect url
 
   var user = req.body.word; 
   var urlStem = 'http://swapi.co/api/';
 
-  request(urlStem + user, function(error, response, data) {
+  request(urlStem + user + '/', function(error, response, data) {
     var post = JSON.parse(data); 
 
     if (error) {
       throw error; 
     } else {
-      console.log('data', data);
+      console.log('post', post);
     }
   })
 
