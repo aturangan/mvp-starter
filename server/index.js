@@ -16,18 +16,15 @@ app.post('/SW', function(req, res) {
   request(urlStem + user + '/', function(error, response, data) {
     var post = JSON.parse(data); 
 
-
-    console.log('POSTTT', post); 
-
     post.results.forEach(item => {
-      console.log(item); 
+      console.log('ITEM, ITEM, ITEM, ITEM NAAAME', item.name); 
 
-      db.findOne({stat: item.name}, function(error, data) {
 
         var DB = new db({
-          title: item.title, 
-          episode_id: item.episode_id
+          name: item.name
         });
+
+        console.log('DATABASEEE', DB); 
 
         DB.save(function(error) {
           if (error) {
@@ -40,9 +37,10 @@ app.post('/SW', function(req, res) {
       });
     })
 
+    console.log('databaseee'); 
 
   });
-});
+
 
 
 app.get('/info', function (req, res) {

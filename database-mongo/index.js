@@ -14,8 +14,7 @@ db.once('open', function() {
 var infoSchema = mongoose.Schema({
   //info that you want to display for star wars word 
 
-  title: {type: String, unique: true, dropDups: true},
-  episode_id: Number
+  name: {type: String, unique: true, dropDups: true}
   
 });
 
