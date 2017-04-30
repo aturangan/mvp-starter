@@ -4,7 +4,7 @@ const ListInfo = (props) => (
 <div>
   <div>
     <h3> Choose from one of the following </h3>
-      Planets, Vehicles, People, Species
+      Planets, People, Species
   </div>
 
   <div>

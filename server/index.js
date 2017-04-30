@@ -8,58 +8,53 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 
-app.post('/SW', function(req, res) {
+app.post('/SW', function(req, res, next) {
 
   var user = req.body.word.toLowerCase();
-  var urlStem = 'http://swapi.co/api/';
+  console.log(typeof user); 
 
-  request(urlStem + user + '/', function(error, response, data) {
+
+  var urlStem = 'http://swapi.co/api/';
+  var num;
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  if (user === 'species') {
+    num = getRandomInt(1, 37);
+  } else if (user === 'people') {
+    num = getRandomInt(1, 87); 
+  } else if (user === 'planets') {
+    num = getRandomInt(1, 61); 
+  }
+
+
+  request(urlStem + user + '/' + num + '/', function(error, response, data) {
     var post = JSON.parse(data); 
 
-    post.results.forEach(item => {
-      console.log('ITEM, ITEM, ITEM, ITEM NAAAME', item.name); 
+    console.log('POST RESULTS', post)
 
-      res.send(item.name); 
-        var DB = new db({
-          name: item.name
-        });
-
-        console.log('DATABASEEE', DB); 
-
-        DB.save(function(error) {
-          if (error) {
-            console.log('Error Saving to Database'); 
-          } else {
-            console.log('Information Saved to Database'); 
-          }
-        });
-      res.end(); 
-
-         //res.send(item.name); 
+    var DB = new db({
+      name: post.name
     });
+
+    console.log('DATABASEEE', DB); 
+
+    DB.save(function(error) {
+      if (error) {
+        console.log('Error Saving to Database'); 
+      } else {
+        console.log('Information Saved to Database'); 
+      }
+    });
+
+    res.send(post.name); //sending the headers as well
+    res.end(); 
   })
-
-    console.log('databaseee'); 
 });
-
-
-
-// app.get('/info', function (req, res) {
-
-  // console.log('REQUEST FOR GET', req); 
-  // //might need to parse 
-  // //send to client as object 
-
-  // //how to get from database
-  // DB.find({}, function(err, item) {
-  //   // if (err) {
-  //   //   console.log(err);
-  //   // }
-  //   res.send(item);
-  //   res.end(); 
-  // })
-
-  // res.send('HELLO')
 
 
 app.listen(3000, function() {

@@ -47,7 +47,7 @@ class App extends React.Component {
 
   //   $.ajax({
   //     url: 'http://localhost:3000/info', 
-  //     type: 'GET', 
+  //     type: 'GET',  
 
   //     success: (data) => {
   //       console.log('DATA', data); 
