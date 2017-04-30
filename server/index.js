@@ -19,7 +19,6 @@ app.post('/SW', function(req, res) {
     post.results.forEach(item => {
       console.log('ITEM, ITEM, ITEM, ITEM NAAAME', item.name); 
 
-
         var DB = new db({
           name: item.name
         });
@@ -34,16 +33,16 @@ app.post('/SW', function(req, res) {
           }
         });
 
-      });
-    })
+         res.send(item.name); 
+    });
+  })
 
     console.log('databaseee'); 
-
-  });
-
+});
 
 
-app.get('/info', function (req, res) {
+
+// app.get('/info', function (req, res) {
 
   // console.log('REQUEST FOR GET', req); 
   // //might need to parse 
@@ -51,19 +50,15 @@ app.get('/info', function (req, res) {
 
   // //how to get from database
   // DB.find({}, function(err, item) {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     res.send(item);
-  //     console.log('GET REQUEST');
-  //     res.end(); 
-  //   }
+  //   // if (err) {
+  //   //   console.log(err);
+  //   // }
+  //   res.send(item);
+  //   res.end(); 
   // })
 
-  res.send('HELLO')
+  // res.send('HELLO')
 
-
-});
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');

@@ -26,11 +26,11 @@ class App extends React.Component {
 
       success: (data) => {
 
-        //check state
-        // this.setState({
-        //   SW: data
-        // });
+        this.setState({
+          info: data
+        });
 
+        console.log(data);  
         console.log('Successful AJAX Request');
       },
 
@@ -41,26 +41,27 @@ class App extends React.Component {
     });
   }
 
-  componentDidMount() {
+  // componentDidMount() {
 
-    $.ajax({
-      url: 'http://localhost:3000/info', 
-      type: 'GET', 
+  //   $.ajax({
+  //     url: 'http://localhost:3000/info', 
+  //     type: 'GET', 
 
-      success: (data) => {
-        console.log('Successful GET Request');
+  //     success: (data) => {
+  //       console.log('DATA', data); 
+  //       console.log('Successful GET Request');
 
-        //check state
-        // this.setState({
-        //   SW: data
-        // })
-      },
+  //       //check state
+  //       // this.setState({
+  //       //   SW: data
+  //       // })
+  //     },
 
-      error: (err) => {
-        console.log('err', err); 
-      }
-    })
-  }
+  //     error: (err) => {
+  //       console.log('err', err); 
+  //     }
+  //   })
+  // }
 
   render () {
     return (<div>
