@@ -10,7 +10,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      info: []
+      info: [],
+      name: ''
     }
   }
 
@@ -27,9 +28,10 @@ class App extends React.Component {
       success: (data) => {
 
         this.setState({
-          info: data
+          name: data
         });
 
+        //want to render this data to the page
         console.log(data);  
         console.log('Successful AJAX Request');
       },
@@ -68,6 +70,7 @@ class App extends React.Component {
       <h1>Star Wars Information</h1>
       <ListInfo info={this.state.info}/>
       <Search onSearch={this.search.bind(this)}/>
+      <div>{this.state.name}</div>
     </div>)
   }
 }

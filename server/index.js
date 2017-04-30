@@ -19,6 +19,7 @@ app.post('/SW', function(req, res) {
     post.results.forEach(item => {
       console.log('ITEM, ITEM, ITEM, ITEM NAAAME', item.name); 
 
+      res.send(item.name); 
         var DB = new db({
           name: item.name
         });
@@ -32,8 +33,9 @@ app.post('/SW', function(req, res) {
             console.log('Information Saved to Database'); 
           }
         });
+      res.end(); 
 
-         res.send(item.name); 
+         //res.send(item.name); 
     });
   })
 

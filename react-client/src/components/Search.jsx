@@ -21,7 +21,6 @@ class Search extends React.Component {
   search() {
     this.props.onSearch(this.state.word); 
 
-
     //how to render html to the screen.....
   }
 
@@ -30,6 +29,7 @@ class Search extends React.Component {
       <h3>Search</h3> 
         Enter a Star Wars Category: <input value={this.state.word} onChange={this.onChange}/>
       <button onClick={this.search}> Enter </button>
+      
       </div>)  
     }
 }
