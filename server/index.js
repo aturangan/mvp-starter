@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 
-app.post('/SW', function(req, res, next) {
+app.post('/SW', function(req, res) {
 
   var user = req.body.word.toLowerCase();
   console.log(typeof user); 
@@ -28,7 +28,7 @@ app.post('/SW', function(req, res, next) {
   } else if (user === 'people') {
     num = getRandomInt(1, 87); 
   } else if (user === 'planets') {
-    num = getRandomInt(1, 61); 
+    num = getRandomInt(1, 60); 
   }
 
 
@@ -41,8 +41,6 @@ app.post('/SW', function(req, res, next) {
       name: post.name
     });
 
-    console.log('DATABASEEE', DB); 
-
     DB.save(function(error) {
       if (error) {
         console.log('Error Saving to Database'); 
@@ -51,7 +49,7 @@ app.post('/SW', function(req, res, next) {
       }
     });
 
-    res.send(post.name); //sending the headers as well
+    res.send(post.name);
     res.end(); 
   })
 });

@@ -20,18 +20,16 @@ class Search extends React.Component {
 
   search() {
     this.props.onSearch(this.state.word); 
-
-    //how to render html to the screen.....
   }
 
   render() {
-    return (<div>
+    return (<div id="text">
       <h3>Search</h3> 
         Enter a Star Wars Category: <input value={this.state.word} onChange={this.onChange}/>
       <button onClick={this.search}> Enter </button>
       
       </div>)  
-    }
+  }
 }
 
 export default Search; 

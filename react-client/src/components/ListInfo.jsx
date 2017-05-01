@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ListInfo = (props) => (
-<div>
+<div id="text">
   <div>
     <h3> Choose from one of the following </h3>
       Planets, People, Species

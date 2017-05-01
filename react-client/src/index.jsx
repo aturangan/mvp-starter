@@ -5,7 +5,6 @@ import Search from './components/Search.jsx';
 import ListInfo from './components/ListInfo.jsx';
 
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +30,6 @@ class App extends React.Component {
           name: data
         });
 
-        //want to render this data to the page
         console.log(data);  
         console.log('Successful AJAX Request');
       },
@@ -43,31 +41,9 @@ class App extends React.Component {
     });
   }
 
-  // componentDidMount() {
-
-  //   $.ajax({
-  //     url: 'http://localhost:3000/info', 
-  //     type: 'GET',  
-
-  //     success: (data) => {
-  //       console.log('DATA', data); 
-  //       console.log('Successful GET Request');
-
-  //       //check state
-  //       // this.setState({
-  //       //   SW: data
-  //       // })
-  //     },
-
-  //     error: (err) => {
-  //       console.log('err', err); 
-  //     }
-  //   })
-  // }
-
   render () {
-    return (<div>
-      <h1>Star Wars Information</h1>
+    return (<div id="text">
+      <h1 id="text" id="logo">Star Wars Information</h1>
       <ListInfo info={this.state.info}/>
       <Search onSearch={this.search.bind(this)}/>
       <div>{this.state.name}</div>
