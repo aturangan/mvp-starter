@@ -46,7 +46,7 @@ class App extends React.Component {
       <h1 id="text" id="logo">Star Wars Information</h1>
       <ListInfo info={this.state.info}/>
       <Search onSearch={this.search.bind(this)}/>
-      <div>{this.state.name}</div>
+      <div id="result">{this.state.name}</div>
     </div>)
   }
 }

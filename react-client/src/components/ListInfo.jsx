@@ -8,7 +8,7 @@ const ListInfo = (props) => (
   </div>
 
   <div>
-    <img style={{width:300}} src="https://img.clipartfest.com/2a89a6e610965feb32424a1575a97e07_star-wars-storm-troopers-and-star-ward-trooper-clipart_508-576.jpeg"/>
+    <img style={{width:500}} src="http://a.dilcdn.com/bl/wp-content/uploads/sites/6/2016/09/starwarsstickers-s1-row2-v3.gif"/>
   </div>
 </div>
 )
