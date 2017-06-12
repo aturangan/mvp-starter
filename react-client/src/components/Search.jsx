@@ -23,12 +23,13 @@ class Search extends React.Component {
   }
 
   render() {
-    return (<div id="text">
-      <h3>Search</h3> 
+    return (
+      <div id="text">
+        <h3>Search</h3> 
         Enter a Star Wars Category: <input value={this.state.word} onChange={this.onChange}/>
-      <button onClick={this.search}> Enter </button>
-      
-      </div>)  
+        <button onClick={this.search}> Enter </button>
+      </div>
+    )  
   }
 }
 

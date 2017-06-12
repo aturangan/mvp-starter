@@ -13,7 +13,6 @@ app.post('/SW', function(req, res) {
   var user = req.body.word.toLowerCase();
   console.log(typeof user); 
 
-
   var urlStem = 'http://swapi.co/api/';
   var num;
 
@@ -31,11 +30,10 @@ app.post('/SW', function(req, res) {
     num = getRandomInt(1, 60); 
   }
 
-
   request(urlStem + user + '/' + num + '/', function(error, response, data) {
     var post = JSON.parse(data); 
 
-    console.log('POST RESULTS', post)
+    console.log('POST RESULTS', post);
 
     var DB = new db({
       name: post.name
@@ -51,9 +49,8 @@ app.post('/SW', function(req, res) {
 
     res.send(post.name);
     res.end(); 
-  })
+  });
 });
-
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');
